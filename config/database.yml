@@ -1,0 +1,6 @@
+development:
+  host: localhost
+  adapter: postgresql
+  database: <%= ENV['WHITELABEL'] %>_catalog_dev
+  username: etozzato
+  password:

@@ -1,0 +1,39 @@
+/**
+ * Scopes
+ * Theses appear above tables, providing the ability to filter rows
+ */
+
+.scopes {
+  @include am-list-blank;
+  @include am-list-inline;
+  flex-grow: 1;
+  text-align: right;
+}
+
+.scope {
+  font-size: 13px;
+  font-weight: $am-font-weight-medium;
+
+  a {
+    @include am-link(secondary-text);
+    padding: am-unit(1);
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.selected {
+    font-weight: bold;
+
+    a {
+      @include am-fill(light);
+    }
+  }
+}
+
+.scope {
+  .count {
+    padding-right: am-unit(1);
+    color: am-color(error);
+  }
+}

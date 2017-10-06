@@ -1,0 +1,18 @@
+
+$am-font-sans: 'Anonymous Pro', sans-serif !default;
+
+/// The weight of bold type
+$am-font-weight-bold: 700;
+
+/// The weight of semi-bold type
+$am-font-weight-semi-bold: 700;
+
+/// The weight of medium type
+$am-font-weight-medium: 400;
+
+/// The weight of regular type
+$am-font-weight-regular: 400;
+
+$am-fonts: (
+  sans: $am-font-sans
+);
