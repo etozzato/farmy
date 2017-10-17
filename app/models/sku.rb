@@ -4,6 +4,8 @@ class Sku < ApplicationRecord
   belongs_to :sector
   belongs_to :family
 
+  belongs_to :company
+
   validates :name, presence: true
   validates :product, presence: true
 

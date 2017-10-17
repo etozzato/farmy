@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925000519) do
+ActiveRecord::Schema.define(version: 20171017102329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,44 @@ ActiveRecord::Schema.define(version: 20170925000519) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.bigint "district_id"
+    t.index ["district_id"], name: "index_areas_on_district_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "nif"
+    t.string "address"
+    t.float "longitude"
+    t.float "latitude"
+    t.bigint "district_id"
+    t.bigint "area_id"
+    t.bigint "neighbour_id"
+    t.string "phone"
+    t.string "mobile_phone"
+    t.string "email"
+    t.string "email2"
+    t.string "website"
+    t.string "facebook"
+    t.string "twitter"
+    t.string "google_plus"
+    t.boolean "is_public", default: true
+    t.boolean "is_active", default: true
+    t.boolean "is_company", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_companies_on_area_id"
+    t.index ["district_id"], name: "index_companies_on_district_id"
+    t.index ["neighbour_id"], name: "index_companies_on_neighbour_id"
+  end
+
+  create_table "districts", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "families", force: :cascade do |t|
     t.string "name"
     t.bigint "sub_sector_id"
@@ -55,6 +93,14 @@ ActiveRecord::Schema.define(version: 20170925000519) do
     t.datetime "updated_at", null: false
     t.index ["sector_id"], name: "index_families_on_sector_id"
     t.index ["sub_sector_id"], name: "index_families_on_sub_sector_id"
+  end
+
+  create_table "neighbours", force: :cascade do |t|
+    t.string "name"
+    t.bigint "district_id"
+    t.bigint "area_id"
+    t.index ["area_id"], name: "index_neighbours_on_area_id"
+    t.index ["district_id"], name: "index_neighbours_on_district_id"
   end
 
   create_table "products", force: :cascade do |t|
