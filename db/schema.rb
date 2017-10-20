@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 20171017102329) do
   create_table "skus", force: :cascade do |t|
     t.string "name"
     t.boolean "is_active"
+    t.bigint "company_id"
     t.string "variety"
     t.float "caliber"
     t.text "description"
@@ -151,6 +152,7 @@ ActiveRecord::Schema.define(version: 20171017102329) do
     t.bigint "family_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_skus_on_company_id"
     t.index ["family_id"], name: "index_skus_on_family_id"
     t.index ["product_id"], name: "index_skus_on_product_id"
     t.index ["sector_id"], name: "index_skus_on_sector_id"
@@ -171,6 +173,7 @@ ActiveRecord::Schema.define(version: 20171017102329) do
   add_foreign_key "products", "families"
   add_foreign_key "products", "sectors"
   add_foreign_key "products", "sub_sectors"
+  add_foreign_key "skus", "companies"
   add_foreign_key "skus", "families"
   add_foreign_key "skus", "products"
   add_foreign_key "skus", "sectors"

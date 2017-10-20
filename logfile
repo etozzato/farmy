@@ -265,3 +265,14 @@ LOG:  shutting down
 LOG:  database system is shut down
 FATAL:  lock file "postmaster.pid" already exists
 HINT:  Is another postmaster (PID 1807) running in data directory "/usr/local/var/postgres"?
+LOG:  database system was shut down at 2017-10-20 15:37:00 WEST
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  database "_catalog_dev" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "_catalog_dev"
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down

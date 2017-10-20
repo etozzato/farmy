@@ -16,7 +16,8 @@ ActiveAdmin.register Company do
                 :google_plus,
                 :is_company,
                 :is_public,
-                :is_active
+                :is_active,
+                product_ids: []
 
   config.sort_order = 'id_asc'
   menu priority: 2
@@ -33,7 +34,23 @@ ActiveAdmin.register Company do
     actions
   end
 
+  sidebar "Sectores", only: :show do
+    table_for company.sectors do
+      column :name
+    end
+  end
+
+  sidebar "Produtos", only: :show do
+    table_for company.skus do
+      column :name
+    end
+  end
+
   form do |f|
+
+    f.inputs "Products" do
+      f.input :products, input_html: { class: 'chosen-select' }
+    end
 
     f.inputs "AAA" do
       f.input :name

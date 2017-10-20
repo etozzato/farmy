@@ -6,13 +6,13 @@ class Sku < ApplicationRecord
 
   belongs_to :company
 
-  validates :name, presence: true
   validates :product, presence: true
 
   after_save :categorize
 
   def categorize
     update_columns(
+      name: product.name,
       sub_sector_id: product.sub_sector_id,
       sector_id: product.sector_id,
       family_id: product.family_id

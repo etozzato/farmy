@@ -2,7 +2,8 @@ class CreateSkus < ActiveRecord::Migration[5.1]
   def change
     create_table :skus do |t|
       t.string :name
-      t.boolean :is_active
+      t.boolean :is_active, default: true
+      t.references :company, foreign_key: true
       t.string :variety
       t.float  :caliber
       t.text :description

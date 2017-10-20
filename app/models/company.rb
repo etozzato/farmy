@@ -4,6 +4,8 @@ class Company < ApplicationRecord
   belongs_to :neighbour
 
   has_many :skus
+  has_many :sectors, -> { distinct }, through: :skus
+  has_many :products, -> { distinct }, through: :skus
 
   validates :name, presence: true
   validates :address, presence: true

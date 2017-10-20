@@ -1,0 +1,5 @@
+- Connect to the API of NIF http://www.nif.pt/api/
+- Upload "district / area / neighborhood"
+- Companies delivery + radius
+- Find out if geo-coding can find district / area / neighborhood from address
+- Create multiple products for company edit

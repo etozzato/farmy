@@ -34,3 +34,55 @@ ss = SubSector.find_or_create_by(name: 'Silvicultura e Exploração Florestal', 
 ss = SubSector.find_or_create_by(name: 'Propagação Vegetativa e tecnologia de sementes', sector: sector); fa = Family.find_or_create_by(name: 'Sementes', sector: sector, sub_sector: ss); 'Sementes'.split(/,|;/).each{|el| Product.create(sector: sector, sub_sector: ss, family: fa, name: el.strip)}
 ss = SubSector.find_or_create_by(name: 'Propagação Vegetativa e tecnologia de sementes', sector: sector); fa = Family.find_or_create_by(name: 'Materiais Vegetativos', sector: sector, sub_sector: ss); 'Bolbos, Tubérculos, Raízes, Estacas, Garfos, Gomas, Estolhos, Rebentos, Rizomas em vegetação ou em flor, Plantas de viveiro, Micélios de cogumelos, Alporques, Outras culturas para plantação'.split(/,|;/).each{|el| Product.create(sector: sector, sub_sector: ss, family: fa, name: el.strip)}
 ss = SubSector.find_or_create_by(name: 'Aquacultura', sector: sector); fa = Family.find_or_create_by(name: 'Produção de Algas', sector: sector, sub_sector: ss); 'Spirulina, outras microalgas'.split(/,|;/).each{|el| Product.create(sector: sector, sub_sector: ss, family: fa, name: el.strip)}
+
+Company.create({
+   "name"=>"Câmara Municipal de Lagos",
+   "description"=>"City or town hall in Lagos, Portugal",
+   "nif"=>"101",
+   "address"=>"Praça Gil Eannes, 8600-293 Lagos, Portugal",
+   "longitude"=>-8.67289,
+   "latitude"=>37.10272,
+   "district_id"=>nil,
+   "area_id"=>nil,
+   "neighbour_id"=>nil,
+   "phone"=>"282 780 900",
+   "mobile_phone"=>"",
+   "email"=>"info@cm-lagos.pt",
+   "email2"=>"",
+   "website"=>"https://www.cm-lagos.pt/",
+   "facebook"=>"",
+   "twitter"=>"",
+   "google_plus"=>"",
+   "is_public"=>true,
+   "is_active"=>true,
+   "is_company"=>true
+ })
+
+ Sku.create({
+   "name"=>"Abacate de Lagos",
+   "is_active"=>true,
+   "company_id"=> 1,
+   "variety"=>"TIGER",
+   "caliber"=>3.0,
+   "description"=>"not a real product",
+   "availability_data"=>"n/a",
+   "harvest_forecast"=>"October",
+   "perishability_period"=>"21 days",
+   "available_kg"=>3213.0,
+   "price_per_kg"=>1.5,
+   "price_per_unit"=>nil,
+   "minimum_sale_quantity"=>100.0,
+   "delivery_method"=>nil,
+   "delivery_from"=>nil,
+   "delivery_to"=>nil,
+   "additional_information"=>nil,
+   "origin_location"=>"Lagos, Algarve",
+   "lon"=>nil,
+   "lat"=>nil,
+   "production_type"=>2,
+   "production_certification"=>1,
+   "product_id"=>130,
+   "sub_sector_id"=>6,
+   "sector_id"=>1,
+   "family_id"=>15
+ })

@@ -2,7 +2,7 @@ ActiveAdmin.register Sku do
   permit_params :name,
                 :is_active,
                 :product_id,
-                :name,
+                :company_id,
                 :variety,
                 :caliber,
                 :description,
@@ -31,6 +31,8 @@ ActiveAdmin.register Sku do
     column :id
     column :name
     column :is_active
+    actions
+    column :company
     column :product
     column :family
     column :sub_sector
@@ -40,13 +42,16 @@ ActiveAdmin.register Sku do
 
   form do |f|
 
+    f.inputs "Produtor" do
+      f.input :company, input_html: { class: 'chosen-select' }
+    end
+
     f.inputs "Categorização do Produto" do
       f.input :product, input_html: { class: 'chosen-select' }
       f.input :is_active
     end
 
     f.inputs "Descrição do Produto" do
-      f.input :name
       f.input :variety
       f.input :caliber
       f.input :description
