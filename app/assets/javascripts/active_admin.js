@@ -8,8 +8,8 @@ $(document).ready(function(){
   $( "input.lookup" ).blur(function( event ) {
     var value = event.target.value
     $.ajax({
-      url: 'http://www.nif.pt/?json=1&q=' + value,
-      dataType: 'json',
+      url: '//www.nif.pt/?json=1&q=' + value,
+      dataType: 'jsonp',
       type: 'GET',
       success: function (result) {
         console.log(result);
