@@ -51,6 +51,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin-oauth2'
 gem 'omniauth-facebook'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

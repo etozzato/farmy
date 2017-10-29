@@ -48,6 +48,10 @@ ActiveAdmin.register Company do
 
   form do |f|
 
+    f.inputs "NIF LOOKUP" do
+      f.input :nif, label: 'Enter the NIF of the company to perform an API lookup', input_html: { class: 'lookup' }
+    end
+
     f.inputs "Products" do
       f.input :products, input_html: { class: 'chosen-select' }
     end
@@ -55,7 +59,6 @@ ActiveAdmin.register Company do
     f.inputs "AAA" do
       f.input :name
       f.input :description
-      f.input :nif
     end
 
     f.inputs "BBB" do
