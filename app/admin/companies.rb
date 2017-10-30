@@ -48,8 +48,11 @@ ActiveAdmin.register Company do
 
   form do |f|
 
+    response = HTTParty.get("http://www.nif.pt/?json=1&credits=1&key=#{ENV['NIF_KEY']}")
+    nif_credits =
+      response.parsed_response['credits'].map{|k,v| "#{k} #{v}"}.join(', ') if response.parsed_response['credits']
     f.inputs "Company LOOKUP" do
-      f.input :nif, label: 'Enter the NIF of the company to perform an API lookup', input_html: { class: 'lookup' }
+      f.input :nif, label: "Enter the NIF of the company to perform an API lookup (#{nif_credits|| 'n/a'})", input_html: { class: 'lookup' }
       f.input :name
       f.input :description
     end
