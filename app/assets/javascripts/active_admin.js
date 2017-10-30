@@ -8,37 +8,23 @@ $(document).ready(function(){
   $( "input.lookup" ).blur(function( event ) {
     var value = event.target.value
     $.ajax({
-      url: '//www.nif.pt/?json=1&q=' + value,
-      dataType: 'jsonp',
+      url: '/api/companies/' + value + '/nif',
+      dataType: 'json',
       type: 'GET',
       success: function (result) {
-        console.log(result);
+        var obj = result.records[value];
+        $('input#company_name').val(obj.title)
+        $('input#company_description').val(obj.text_activity)
+        $('input#company_address').val(obj.address)
+        $('input#company_city').val(obj.city)
+        $('input#company_phone').val(obj.contacts.phone)
+        $('input#company_email').val(obj.contacts.email)
+        $('input#company_website').val(obj.contacts.website)
       },
       error: function (err) {
-        console.log(err);
         $('<div class="flashes"><div class="flash flash_error">An Error Occurred</div></div>').insertAfter('#title_bar')
       }
     });
-
-    // var jqxhr = $.getJSON( 'http://www.nif.pt/?json=1&q=' + value + '&callback=?', function() {
-    //   console.log( "success" );
-    // })
-    //   .done(function() {
-    //     console.log( "second success" );
-    //   })
-    //   .fail(function() {
-    //     console.log( "error" );
-    //   })
-    //   .always(function() {
-    //     console.log( "complete" );
-    //   });
-
-    // Perform other work here ...
-
-    // Set another completion function for the request above
-    // jqxhr.complete(function() {
-    //   console.log( "second complete" );
-    // });
 
     event.preventDefault()
   })

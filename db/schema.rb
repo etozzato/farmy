@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20171017102329) do
     t.string "description"
     t.string "nif"
     t.string "address"
+    t.string "city"
     t.float "longitude"
     t.float "latitude"
     t.bigint "district_id"
@@ -125,7 +126,7 @@ ActiveRecord::Schema.define(version: 20171017102329) do
 
   create_table "skus", force: :cascade do |t|
     t.string "name"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.bigint "company_id"
     t.string "variety"
     t.float "caliber"
