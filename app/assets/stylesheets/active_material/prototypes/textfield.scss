@@ -25,6 +25,11 @@ $am-textfield-password-icon: asset-url("active_material/icons/secret.svg") !defa
 /// Icon for date fields.
 $am-textfield-date-icon: asset-url("active_material/icons/event.svg") !default;
 
+input[type="color"] {
+  padding: 10px;
+  height: 50px;
+}
+
 @mixin am-textfield {
   color: $am-textfield-color;
   margin: $am-textfield-margin;
@@ -34,15 +39,18 @@ $am-textfield-date-icon: asset-url("active_material/icons/event.svg") !default;
 
 @mixin am-textfield-input {
   background: #fff;
-  border-radius: 3px;
+  border-radius: 5px;
   border: 1px solid #d3d3d3;
-  box-shadow: inset 1px 1px 1px rgba(#222, 0.08);
   display: block;
-  font-size: am-sp(14);
+  font-size: am-sp(17);
   font-weight: normal;
   line-height: 24px;
   margin: 0;
-  padding: am-unit(1);
+  padding: 0;
+  padding-left: am-unit(1);
+  padding-right: am-unit(1);
+  padding-top: am-unit(0.5);
+  padding-bottom: am-unit(0.5);
   transition: 0.35s border-color, 0.35s box-shadow;
   width: 100%;
 
@@ -72,6 +80,7 @@ $am-textfield-date-icon: asset-url("active_material/icons/event.svg") !default;
   border-radius: 2px;
   height: am-sp(am-unit(7));
   padding: am-unit(1);
+  font-family: inherit !important;
 }
 
 @mixin am-textfield-input-error {

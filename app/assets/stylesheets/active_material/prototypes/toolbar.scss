@@ -3,8 +3,8 @@
  * A basic navigation element, primary used for top level navigation
  */
 
-$am-toolbar-base-font-size  : am-sp(14) !default;
-$am-toolbar-title-font-size : am-sp(20) !default;
+$am-toolbar-base-font-size  : am-sp(11) !default;
+$am-toolbar-title-font-size : am-sp(16) !default;
 $am-toolbar-keyline-small   : am-unit(7) !default;
 $am-toolbar-keyline-medium  : $am-toolbar-keyline-small + 8px !default;
 
@@ -15,6 +15,7 @@ $am-toolbar-keyline-medium  : $am-toolbar-keyline-small + 8px !default;
   flex-wrap: wrap;
   font-size: $am-toolbar-base-font-size;
   position: relative;
+  text-transform: uppercase;
 }
 
 @mixin am-toolbar-primary {
@@ -26,7 +27,7 @@ $am-toolbar-keyline-medium  : $am-toolbar-keyline-small + 8px !default;
   font-size: $am-toolbar-title-font-size;
   font-weight: $am-font-weight-medium;
   line-height: am-unit(2);
-  padding: am-unit(2);
+  padding: am-unit(1);
   width: 100%;
   text-align: left;
 

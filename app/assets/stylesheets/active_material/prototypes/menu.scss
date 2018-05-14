@@ -62,7 +62,6 @@ $am-menu-carat-size: 5px !default;
   padding: $am-menu-padding 0;
   position: absolute;
   text-align: left;
-  top: $am-menu-offset-y;
   transform-origin: 0 0;
   transform: translate3d(0, -4px, 0) scaleY(0);
   transition: $am-menu-transition all;

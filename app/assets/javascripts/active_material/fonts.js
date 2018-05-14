@@ -1,5 +1,5 @@
 WebFontConfig = {
-  google: { families: [ 'Anonymous Pro:700,400:latin,latin-ext' ] }
+  google: { families: [ 'IBM Plex Mono:300,400,600:latin' ] }
 };
 
 (function() {

@@ -8,13 +8,18 @@
   clear: both;
 
   .pagination_information,
-  .download_links {
+  .download_links,
+  .pagination_per_page {
     @include am-type-caption;
     padding: am-unit(2);
   }
 
   .pagination_information {
     float: left;
+  }
+
+  .pagination_per_page {
+    float: right;
   }
 
   .download_links {

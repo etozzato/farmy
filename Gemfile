@@ -4,17 +4,19 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.2.5'
-gem 'rails'
+ruby '2.4.1'
+gem 'rails', '~> 5.1'
 gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pg'
+gem 'redis'
+gem 'apipie-rails'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'responders'
@@ -25,7 +27,7 @@ gem 'pundit'
 gem 'administrate'
 
 gem 'settingslogic'
-gem 'hash_all'
+gem 'hash_all', git: 'https://github.com/etozzato/Hash_All.git'
 gem 'prawn'
 gem 'rmagick'
 gem 'geocoder'
@@ -51,7 +53,11 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin-oauth2'
 gem 'omniauth-facebook'
-gem 'rack-cors', :require => 'rack/cors'
+gem 'graphql'
+gem 'graphiql-rails', group: :development
+gem 'rails-units'
+gem 'rack-cors', require: 'rack/cors'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -78,11 +84,12 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-rails'
   gem 'pry-rescue'

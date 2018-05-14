@@ -4,7 +4,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Catalog"
+  config.site_title = "Farmy"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -282,7 +282,25 @@ ActiveAdmin.setup do |config|
   # By default, the footer shows the current Active Admin version. You can
   # override the content of the footer here.
   #
-  config.view_factory.footer = Footer
+  REVISION = `SHA1=$(git rev-parse --short HEAD 2> /dev/null); if [ $SHA1 ]; then echo $SHA1; else echo 'unknown'; fi`.chomp
+  VERSION = `VERSION=$(cat ./VERSION); if [ $VERSION ]; then echo $VERSION; else echo 'unknown'; fi`.chomp
+  config.footer = proc {
+    "<small>
+      Powered by #{link_to("Pharmy", "http://pharmware.net")}
+      <br><small>(Version: #{VERSION} Revision: #{REVISION})</small>
+      <div id='locator'
+        data-whitelabel='#{1}'
+        data-location='#{controller_name}-#{action_name}'
+        data-controller-name='#{controller_name}'
+        data-action-name='#{action_name}'>
+      </div>
+      #{current_admin_user.email} | #{controller_name}-#{action_name};#{params[:scope]}
+      <div>
+        #{Time.current.strftime("%a, %e %b %Y %I:%M %p %Z")}
+      </div>
+    </small>
+    #{link_to(image_tag('plan_a_farm.jpg', class: 'fade-10'), 'https://planafarm.com/', target: :new)}".html_safe
+  }
 
   # == Sorting
   #

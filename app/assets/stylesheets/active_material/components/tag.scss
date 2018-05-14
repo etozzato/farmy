@@ -3,6 +3,18 @@
  * Tags show up as states within tables and other components
  */
 
+.state_tag {
+  @include am-tag;
+
+  a & {
+    @include am-tag-pressable;
+  }
+
+  &.yes {
+    @include am-tag-success;
+  }
+}
+
 .status_tag {
   @include am-tag;
 
